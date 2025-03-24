@@ -28,7 +28,7 @@ print('')
 x_train = x_train / 255.0
 x_test = x_test / 255.0
 
-# Regolarizzazione: Per evitare overfitting
+# Rete neurale con 3 layer e regolazione della stessa, per evitare overfitting
 model = Sequential([
     Flatten(input_shape=(28, 28)),
     Dense(128, activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)),
@@ -36,7 +36,7 @@ model = Sequential([
     Dense(10, activation='softmax')
 ])
 
-# Compila il modello
+# Compila il modello con la funzione obiettivo impiegata per il feedback e la metrica
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
